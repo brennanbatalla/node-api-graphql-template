@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src",
     "build": "webpack --config webpack.$NODE_ENV.js",
-    "start": "env-cmd -f ./.env ts-node-dev src/server.ts --respawn --transpileOnly",
+    "start": "env-cmd -f ./.env ts-node-dev src/server.ts --respawn --transpileOnly --watch .graphql",
     "build:production": "NODE_ENV=production npm run build"
   },
   "author": "",

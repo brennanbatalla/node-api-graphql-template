@@ -1,21 +1,10 @@
-import User from "../database/model/User.model";
+import Pet from "../database/model/Pet.model";
 
-
-export default {
-    Query: {
-        users: () => {
-            console.log("QUERY USERS");
-            return User.findAll()
-        },
-        user: (parent, args, context, info) => {
-            console.log("QUERY USER");
-            return User.findOne({where: {id: args.id}})
-        }
+const User = {
+    pets: (parent, args, context) => {
+        console.log("QUERY PETS");
+        return Pet.findAll({where: {ownerId: parent.id}})
     },
-    Mutation: {
-        user: (parent, args) => {
-            let user = {firstName: args.firstName, lastName: args.lastName};
-            return User.create(user)
-        }
-    }
 }
+
+export {User as default};

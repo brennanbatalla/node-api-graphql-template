@@ -1,6 +1,5 @@
-import { merge } from 'lodash';
 import User from "./User.resolver";
-import Pet from "./Pet.resolver";
+import Query from "./Query.resolver";
+import Mutation from "./Mutation.resolver";
 
-
-export default merge(User, Pet);
+export default {User, Query, Mutation};

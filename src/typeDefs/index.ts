@@ -1,11 +1,8 @@
-import {gql} from "apollo-server";
-import {User} from "./User";
-import {Pet} from "./Pet.type";
+import {readFileSync} from 'fs';
 
+const loadSchema = (name) => readFileSync(`${__dirname}/${name}.graphql`).toString('utf-8');
 
-const baseTypeDefs = gql`
-    type Query
-    type Mutation
-`
-
-export default [baseTypeDefs, User, Pet]
+export default [
+    loadSchema('schema'),
+    loadSchema('inputs')
+]

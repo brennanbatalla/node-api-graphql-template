@@ -1,0 +1,25 @@
+type Query {
+    getPets: [Pet!]!
+    getPet: Pet!
+    getUsers: [User!]!
+    getUser(id: ID!): User!
+}
+
+type Mutation{
+    createPet(input: CreatePetInput): Pet!
+    createUser(firstName: String!, lastName: String!): User!
+}
+
+type Pet {
+    id: ID!
+    name: String!
+    ownerId: String!
+    owner: User
+}
+
+type User {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    pets: [Pet!]!
+}
